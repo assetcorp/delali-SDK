@@ -4,6 +4,7 @@ import {
   MovieListResponse,
   MovieResponse,
   Quote,
+  QuoteListResponse,
   RequestOptions,
 } from "./interfaces";
 
@@ -17,7 +18,7 @@ class LOTRSDK {
    */
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    this.baseUrl = "https://the-one-api.dev/v2";
+    this.baseUrl = "https://the-one-api.dev";
   }
 
   /**
@@ -29,7 +30,7 @@ class LOTRSDK {
    * @throws Will throw an error if the API request fails.
    */
   private async request<T>(path: string, options?: RequestOptions): Promise<T> {
-    const url = new URL(path, this.baseUrl);
+    const url = new URL(`/v2${path}`, this.baseUrl);
 
     if (options) {
       const { limit, page, offset, sort, filter } = options;
@@ -47,6 +48,7 @@ class LOTRSDK {
     const response = await fetch(url.toString(), {
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": `application/json`,
       },
     });
 
@@ -71,20 +73,23 @@ class LOTRSDK {
   /**
    * Fetches a movie by its ID.
    * @param {string} id - The movie ID.
-   * @returns {Promise<MovieResponse>} - A promise that resolves with the movie information.
+   * @returns {Promise<MovieListResponse>} - A promise that resolves with the movie information.
    */
-  async getMovieById(id: string): Promise<MovieResponse> {
-    return this.request<MovieResponse>(`/movie/${id}`);
+  async getMovieById(id: string): Promise<MovieListResponse> {
+    return this.request<MovieListResponse>(`/movie/${id}`);
   }
 
   /**
    * Fetches the quotes for a movie by its ID.
    * @param {string} id - The movie ID.
    * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
-   * @returns {Promise<Quote[]>} - A promise that resolves with the list of movie quotes.
+   * @returns {Promise<QuoteListResponse>} - A promise that resolves with the list of movie quotes.
    */
-  async getMovieQuotes(id: string, options?: RequestOptions): Promise<Quote[]> {
-    return this.request<Quote[]>(`/movie/${id}/quote`, options);
+  async getMovieQuotes(
+    id: string,
+    options?: RequestOptions
+  ): Promise<QuoteListResponse> {
+    return this.request<QuoteListResponse>(`/movie/${id}/quote`, options);
   }
 }
 

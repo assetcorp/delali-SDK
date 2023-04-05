@@ -34,6 +34,15 @@ export interface Quote {
   character: string;
 }
 
+export interface QuoteListResponse {
+  docs: Quote[];
+  total: number;
+  limit: number;
+  offset: number;
+  page: number;
+  pages: number;
+}
+
 export interface RequestOptions {
   limit?: number;
   page?: number;
