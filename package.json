@@ -1,16 +1,23 @@
 {
-  "name": "delali-SDK",
+  "name": "@dealli/lotrsdk",
   "version": "1.0.0",
   "description": "An SDK for the LOTR API",
   "main": "index.ts",
   "repository": "https://github.com/assetcorp/delali-SDK.git",
   "author": "Delali <Delalify@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
   "dependencies": {
     "node-fetch": "^3.3.1"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.0",
     "@types/node-fetch": "^2.6.3",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.3"
   }
 }
