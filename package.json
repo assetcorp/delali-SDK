@@ -1,0 +1,9 @@
+{
+  "name": "delali-SDK",
+  "version": "1.0.0",
+  "description": "An SDK for the LOTR API",
+  "main": "index.ts",
+  "repository": "https://github.com/assetcorp/delali-SDK.git",
+  "author": "Delali <Delalify@gmail.com>",
+  "license": "MIT"
+}
