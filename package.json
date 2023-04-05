@@ -5,5 +5,12 @@
   "main": "index.ts",
   "repository": "https://github.com/assetcorp/delali-SDK.git",
   "author": "Delali <Delalify@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.3",
+    "typescript": "^5.0.3"
+  }
 }
