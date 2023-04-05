@@ -2,8 +2,6 @@ import fetch from "node-fetch";
 import {
   ErrorResponse,
   MovieListResponse,
-  MovieResponse,
-  Quote,
   QuoteListResponse,
   RequestOptions,
 } from "./interfaces";

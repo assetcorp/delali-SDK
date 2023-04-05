@@ -3,7 +3,7 @@ export interface ErrorResponse {
   message: string;
 }
 
-export interface Movie {
+interface Movie {
   _id: string;
   name: string;
   runtimeInMinutes: number;
@@ -27,7 +27,7 @@ export interface MovieResponse {
   movie: Movie;
 }
 
-export interface Quote {
+interface Quote {
   _id: string;
   dialog: string;
   movie: string;
