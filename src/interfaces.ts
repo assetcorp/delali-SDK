@@ -3,7 +3,7 @@ export interface ErrorResponse {
   message: string;
 }
 
-interface Movie {
+export interface Movie {
   _id: string;
   name: string;
   runtimeInMinutes: number;
@@ -27,7 +27,7 @@ export interface MovieResponse {
   movie: Movie;
 }
 
-interface Quote {
+export interface Quote {
   _id: string;
   dialog: string;
   movie: string;
@@ -43,7 +43,7 @@ export interface QuoteListResponse {
   pages: number;
 }
 
-interface Character {
+export interface Character {
   _id: string;
   name: string;
   wikiUrl: string;
@@ -70,7 +70,7 @@ export interface CharacterResponse {
   character: Character;
 }
 
-interface Book {
+export interface Book {
   _id: string;
   name: string;
 }
@@ -88,7 +88,7 @@ export interface BookResponse {
   book: Book;
 }
 
-interface Chapter {
+export interface Chapter {
   _id: string;
   chapterName: string;
   book: string;
