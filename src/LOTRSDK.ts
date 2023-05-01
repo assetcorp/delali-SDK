@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import {
+  CharacterListResponse,
   ErrorResponse,
   MovieListResponse,
   QuoteListResponse,
@@ -88,6 +89,39 @@ class LOTRSDK {
     options?: RequestOptions
   ): Promise<QuoteListResponse> {
     return this.request<QuoteListResponse>(`/movie/${id}/quote`, options);
+  }
+
+  /**
+   * Fetches a list of characters.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<CharacterListResponse>} - A promise that resolves with the list of characters.
+   */
+  async getCharacters(
+    options?: RequestOptions
+  ): Promise<CharacterListResponse> {
+    return this.request<CharacterListResponse>("/character", options);
+  }
+
+  /**
+   * Fetches a character by its ID.
+   * @param {string} id - The character ID.
+   * @returns {Promise<CharacterListResponse>} - A promise that resolves with the character information.
+   */
+  async getCharacterById(id: string): Promise<CharacterListResponse> {
+    return this.request<CharacterListResponse>(`/character/${id}`);
+  }
+
+  /**
+   * Fetches the quotes for a character by its ID.
+   * @param {string} id - The character ID.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<QuoteListResponse>} - A promise that resolves with the list of character quotes.
+   */
+  async getCharacterQuotes(
+    id: string,
+    options?: RequestOptions
+  ): Promise<QuoteListResponse> {
+    return this.request<QuoteListResponse>(`/character/${id}/quote`, options);
   }
 }
 
