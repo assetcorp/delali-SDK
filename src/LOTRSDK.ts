@@ -1,5 +1,7 @@
 import fetch from "node-fetch";
 import {
+  BookListResponse,
+  ChapterListResponse,
   CharacterListResponse,
   ErrorResponse,
   MovieListResponse,
@@ -122,6 +124,73 @@ class LOTRSDK {
     options?: RequestOptions
   ): Promise<QuoteListResponse> {
     return this.request<QuoteListResponse>(`/character/${id}/quote`, options);
+  }
+
+  /**
+   * Fetches a list of books.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<BookListResponse>} - A promise that resolves with the list of books.
+   */
+  async getBooks(options?: RequestOptions): Promise<BookListResponse> {
+    return this.request<BookListResponse>("/book", options);
+  }
+
+  /**
+   * Fetches a book by its ID.
+   * @param {string} id - The book ID.
+   * @returns {Promise<BookListResponse>} - A promise that resolves with the book information.
+   */
+  async getBookById(id: string): Promise<BookListResponse> {
+    return this.request<BookListResponse>(`/book/${id}`);
+  }
+
+  /**
+   * Fetches the chapters for a book by its ID.
+   * @param {string} id - The book ID.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<ChapterListResponse>} - A promise that resolves with the list of book chapters.
+   */
+  async getBookChapters(
+    id: string,
+    options?: RequestOptions
+  ): Promise<ChapterListResponse> {
+    return this.request<ChapterListResponse>(`/book/${id}/chapter`, options);
+  }
+
+  /**
+   * Fetches a list of quotes.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<QuoteListResponse>} - A promise that resolves with the list of quotes.
+   */
+  async getQuotes(options?: RequestOptions): Promise<QuoteListResponse> {
+    return this.request<QuoteListResponse>("/quote", options);
+  }
+
+  /**
+   * Fetches a quote by its ID.
+   * @param {string} id - The quote ID.
+   * @returns {Promise<QuoteListResponse>} - A promise that resolves with the quote information.
+   */
+  async getQuoteById(id: string): Promise<QuoteListResponse> {
+    return this.request<QuoteListResponse>(`/quote/${id}`);
+  }
+
+  /**
+   * Fetches a list of chapters.
+   * @param {RequestOptions} [options] - Optional request options for pagination, sorting, and filtering.
+   * @returns {Promise<ChapterListResponse>} - A promise that resolves with the list of chapters.
+   */
+  async getChapters(options?: RequestOptions): Promise<ChapterListResponse> {
+    return this.request<ChapterListResponse>("/chapter", options);
+  }
+
+  /**
+   * Fetches a chapter by its ID.
+   * @param {string} id - The chapter ID.
+   * @returns {Promise<ChapterListResponse>} - A promise that resolves with the chapter information.
+   */
+  async getChapterById(id: string): Promise<ChapterListResponse> {
+    return this.request<ChapterListResponse>(`/chapter/${id}`);
   }
 }
 
