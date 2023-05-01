@@ -2,7 +2,7 @@ export interface ErrorResponse {
     success: boolean;
     message: string;
 }
-interface Movie {
+export interface Movie {
     _id: string;
     name: string;
     runtimeInMinutes: number;
@@ -23,7 +23,7 @@ export interface MovieListResponse {
 export interface MovieResponse {
     movie: Movie;
 }
-interface Quote {
+export interface Quote {
     _id: string;
     dialog: string;
     movie: string;
@@ -37,7 +37,7 @@ export interface QuoteListResponse {
     page: number;
     pages: number;
 }
-interface Character {
+export interface Character {
     _id: string;
     name: string;
     wikiUrl: string;
@@ -61,7 +61,7 @@ export interface CharacterListResponse {
 export interface CharacterResponse {
     character: Character;
 }
-interface Book {
+export interface Book {
     _id: string;
     name: string;
 }
@@ -76,7 +76,7 @@ export interface BookListResponse {
 export interface BookResponse {
     book: Book;
 }
-interface Chapter {
+export interface Chapter {
     _id: string;
     chapterName: string;
     book: string;
@@ -99,4 +99,3 @@ export interface RequestOptions {
     sort?: string;
     filter?: Record<string, string>;
 }
-export {};
