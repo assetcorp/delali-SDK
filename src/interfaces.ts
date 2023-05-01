@@ -70,6 +70,43 @@ export interface CharacterResponse {
   character: Character;
 }
 
+interface Book {
+  _id: string;
+  name: string;
+}
+
+export interface BookListResponse {
+  docs: Book[];
+  total: number;
+  limit: number;
+  offset: number;
+  page: number;
+  pages: number;
+}
+
+export interface BookResponse {
+  book: Book;
+}
+
+interface Chapter {
+  _id: string;
+  chapterName: string;
+  book: string;
+}
+
+export interface ChapterListResponse {
+  docs: Chapter[];
+  total: number;
+  limit: number;
+  offset: number;
+  page: number;
+  pages: number;
+}
+
+export interface ChapterResponse {
+  chapter: Chapter;
+}
+
 export interface RequestOptions {
   limit?: number;
   page?: number;
