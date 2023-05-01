@@ -43,6 +43,33 @@ export interface QuoteListResponse {
   pages: number;
 }
 
+interface Character {
+  _id: string;
+  name: string;
+  wikiUrl: string;
+  race: string;
+  birth: string;
+  gender: string;
+  death: string;
+  hair: string;
+  height: string;
+  realm: string;
+  spouse: string;
+}
+
+export interface CharacterListResponse {
+  docs: Character[];
+  total: number;
+  limit: number;
+  offset: number;
+  page: number;
+  pages: number;
+}
+
+export interface CharacterResponse {
+  character: Character;
+}
+
 export interface RequestOptions {
   limit?: number;
   page?: number;
